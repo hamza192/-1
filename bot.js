@@ -265,6 +265,6 @@ if (message.content.startsWith(PREFIX + 'setavatar')) {
 });
 
 client.on('ready', () => {
-	client.channels.get("483035198150148097").join();
+	client.channels.get("490974384702619662").join();
 	});
 client.login(process.env.BOT_TOKEN);
