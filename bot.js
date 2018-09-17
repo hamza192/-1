@@ -51,8 +51,8 @@ client.on('message', async msg => { // eslint-disable-line
 	command = command.slice(PREFIX.length)
 
 	if (command === `play`) {
-		if (msg.member.voiceChannelID !== "490974384702619662") return msg.reply(`You should be in \`\`${client.channels.get("483035198150148097").name}\`\` to use me`);	
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.member.voiceChannelID !== "483035376064397322") return msg.reply(`You should be in \`\`${client.channels.get("483035198150148097").name}\`\` to use me`);	
+		if (msg.channel.id !== "483032953450922017") return;
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('** You need to be in a voice channel :notes:**');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -109,7 +109,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 			return handleVideo(video, msg, voiceChannel);
 		}
 	} else if (command === `skip`) {
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.channel.id !== "483032953450922017") return;
 		if (!msg.member.voiceChannel) return msg.channel.send('** You need to be in a voice channel :notes:**');
 		if (!serverQueue) return msg.channel.send('**There is nothing playing that I could skip for you.**');
 		serverQueue.connection.dispatcher.end('**Skip command has been used!**');
@@ -121,7 +121,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		serverQueue.connection.dispatcher.end('**Stop command has been used!**');
 		return undefined;
 	} else if (command === `vol`) {
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.channel.id !== "483032953450922017") return;
 		if (!msg.member.voiceChannel) return msg.channel.send('** You need to be in a voice channel :notes:**');
 		if (!serverQueue) return msg.channel.send('**There is nothing playing.**');
 		if (!args[1]) return msg.channel.send(`:loud_sound: __Current volume is__ **${serverQueue.volume}**`);
@@ -129,14 +129,14 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 		return msg.channel.send(`:speaker: volume **${args[1]}**`);
 	} else if (command === `np`) {
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.channel.id !== "483032953450922017") return;
 		if (!serverQueue) return msg.channel.send('There is nothing on deck');
 		const embedNP = new Discord.RichEmbed()
 	.setDescription(`:notes: Now playing: **${serverQueue.songs[0].title}**`)
 	.setFooter("")
 		return msg.channel.sendEmbed(embedNP);
 	} else if (command === `queue`) {
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.channel.id !== "483032953450922017") return;
 		
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		let index = 0;
@@ -147,7 +147,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 	.setFooter("United")
 		return msg.channel.sendEmbed(embedqu);
 	} else if (command === `pause`) {
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.channel.id !== "483032953450922017") return;
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
@@ -155,7 +155,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 		}
 		return msg.channel.send('There is nothing playing.');
 	} else if (command === `resume`) {
-		if (msg.channel.id !== "490974450360123393") return;
+		if (msg.channel.id !== "483032953450922017") return;
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
@@ -234,7 +234,7 @@ client.on('message', message => {
   if (!message.content.startsWith(PREFIX)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== "482998523638317081") return;
+  if (message.author.id !== "230681534674370560") return;
 
 if (message.content.startsWith(PREFIX + 'setgame')) {
   client.user.setGame(argresult);
